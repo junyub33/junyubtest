@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="utf-8">
+
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Blog - Business Casual - Start Bootstrap Theme</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="css/business-casual.css" rel="stylesheet">
+
+	<!-- Fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+   <div class="brand"><a href="/">Healing World!</a></div>
+	<div class="address-bar">Show your own story</div>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+				<a class="navbar-brand" href="index.html">Business Casual</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/about">About</a>
+					</li>
+					<li>
+						<a href="/login">Start</a>
+					</li>
+					<li>
+						<a href="/contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="box">
+				<div class="col-lg-12">
+					<hr>
+					<h2 class="intro-text text-center">
+						<strong>Join</strong>
+					</h2>
+					<hr>
+				</div>
+				<div class="col-lg-12 ">
+
+	<form name="form" action='join/user' method='post'>
+		
+		<br>아이디:</br>
+		<input type="text" maxlength="20"id = 'id' name="id"size='10'>
+		[<a href="JavaScript:mdblcheck()">중복확인</a>]
+		<br>이름:</br>
+		<input type="text" maxlength="10"id = 'name1' name="name1"size='10'>
+		
+		<br>비밀번호:<br>
+		<input type="password" maxlength="20"id = 'password' name="password"size='15'onblur=checkvalue();>
+		<br>비밀번호확인:<br>
+		<input type="password" maxlength="20"id = 'password1' name="password1"size='15'onblur=checkvalue();>
+        <input type="text" name="status" style="color:red;font-weight:bold;background-color:transparent;border:0 solid #7B7B7B;" readonly onfocus="this.blur();" >
+
+		<br>생년월일:<br>
+		<input type="text" maxlength="4"id = 'year' name="year"size='3'>년
+		<input type="text" maxlength="2"id = 'mon' name="mon"size='1'>월
+		<input type="text" maxlength="2"id = 'date' name="date"size='1'>일<br>
+
+		<br>성별:</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" id = 'gender' name="gender" value="male">남자&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" id = 'gender' name="gender" value="female">여자<br>
+
+		 <br>E-mail:<br>
+		 
+		 
+		 <script type="text/javascript">
+
+			 function checkemailaddy(){
+					 if (form.email_select.value == '1') {
+						 form.email2.readonly = false;
+						 form.email2.value = '';
+						 form.email2.focus();
+					 }
+					 else {
+						 form.email2.readonly = true;
+						 form.email2.value = form.email_select.value;
+					 }
+				 }
+			 
+			 </script>
+									   
+				
+			 
+			 <input name="email1" type="text" id="email1" size="15"> 
+		   @ <input name="email2" type="text" id="email2" size="20">
+			 <select name="email_select" id="email_select" onChange="checkemailaddy();">
+				 <option value="" selected>선택하세요</option>
+				 <option value="naver.com">naver.com</option>
+				 <option value="hanmail.net">hanmail.net</option>
+				 <option value="google.com">google.com</option>
+				 <option value="hotmail.com">hotmail.com</option>
+				 <option value="yahoo.co.kr">yahoo.co.kr</option>
+				 <option value="1">직접입력</option>
+			 </select>
+			 
+
+			 <br>전화번호:<br>
+			 <select name="tel1" >
+				<option value="010">02</option>
+				<option value="010">031</option>
+				<option value="010">032</option>
+				<option value="010">033</option>
+				<option value="010">041</option>
+				<option value="010">042</option>
+				<option value="010">043</option>
+				<option value="010">051</option>
+				<option value="010">052</option>
+				<option value="010">053</option>
+				<option value="010">054</option>
+				<option value="010">055</option>
+				<option value="010">061</option>
+				<option value="010">062</option>
+				<option value="010">063</option>
+				<option value="010">064</option>
+				<option value="010">010</option>
+				<option value="010">070</option>
+
+			 </select>-
+			 <input type="text" maxlength="4" id = 'tel2' name="tel2"size='3'onkeydown="showKeyCode(event)"><span id="keyinfo"></span>
+				
+			<script>
+			function showKeyCode(event) {
+				event = event || window.event;
+				var keyID = (event.which) ? event.which : event.keyCode;
+				if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) ) {
+				   
+				}
+				else {
+					document.getElementById("keyinfo").innerHTML ="숫자만 입력하세요";
+				}
+			}	
+			</script>
+
+
+			<input type="text" maxlength="4" id = 'tel3' name="tel3"size='3'onkeydown="showKeyCode(event)"><span id="keyinfo"></span>
+			<script>
+			function showKeyCode(event) {
+				event = event || window.event;
+				var keyID = (event.which) ? event.which : event.keyCode;
+				if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) ) {
+				   
+				}
+				else {
+					document.getElementById("keyinfo").innerHTML ="숫자만 입력하세요";
+				}
+				/* 48~57:일반 숫자키 코드, 96~105:숫자키패드 숫자키 코드 */
+			}
+			</script>
+
+			<br>프로필사진 첨부:</br>
+			
+			<input type="file" name="FileName"><br>
+
+
+			<input id="submitbtn" align="right" type="submit" value="Submit">
+			
+			<script type="text/javascript">
+      		function mdblcheck() {
+      			var sendData = { "id" : $("#id").val() };      
+
+      			$.ajax({
+      				type: "POST",
+      				url: "/join/chk",
+      				contentType: "application/json",
+      				data: JSON.stringify(sendData),
+      				success : function (dataFromServer) {
+      					if(dataFromServer.status == 1) {
+      						alert("사용가능한 ID 입니다.");
+      					}
+      					else {
+      						alert("이미 사용중인 ID 입니다.");
+      					}
+      				},
+      				error : function (dataFromServer) {      
+
+      				}
+      			})
+      		}      
+     		</script>
+
+
+			<script language='javascript'>
+
+// checkvalue 기능
+            function checkvalue() {
+                        // a 텍스트 필드와 b 텍스트 필드 중 둘다 값이 있을 때
+            if(form.password.value && form.password1.value) {            
+
+              // 두 필드의 값이 서로 다를 때
+              if(form.password.value!=form.password1.value){            
+
+               // status 필드에 일치하지 않는다는 문장 출력
+               form.status.value = "[ 일치하지 않습니다 ]";            
+
+               // 그에 맞게 길이 수정
+               form.status.style.width = 120;            
+
+              // 두 필드의 값이 동일 할 때
+              } else {            
+
+               // status 필드에 일치한다는 문장 출력
+               form.status.value = "[ 일치합니다 ]";            
+
+               // 역시 그에 맞게 길이 수정
+               form.status.style.width = 83;
+              }            
+
+            // a 텍스트 필드와 b 텍스트 필드 두중하나라도 값이 없을 때
+            } else {            
+
+              // 아무것도 입력이 안 되어 있으므로 비밀번호를 입력해 달라는 메세지를 status 필드에 출력 함
+              form.status.value = "[ 비밀번호를 입력해 주세요 ]";            
+
+              // 그에 맞게 길이 수정
+              form.status.style.width = 160;
+            }            
+
+            }
+</script>
+
+
+			 </form>
+					
+					
+				</div>
+				<div class="col-lg-12 ">
+					<ul class="pager">
+						<li class="previous"><a href="#">&larr; Older</a>
+						</li>
+						<li class="next"><a href="#">Newer &rarr;</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- /.container -->
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<p>Copyright &copy; Your Website 2014</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

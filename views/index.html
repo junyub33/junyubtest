@@ -1,143 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<body onload="window.open('popup', 'new', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no, resizable=no,width=560,height=315')">
+<head><meta charset="utf-8">
 
-<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<meta name="keywords" content="JavaScript, WebRTC" />
-<meta name="description" content="WebRTC codelab" />
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <title>Business Casual - Start Bootstrap Theme</title>
 
-<title>WebRTC codelab: step 3</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-</style>
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
 
-    <script src='/js/adapter.js'></script>
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
 <body>
 
-  <img src="meeting.png" alt="HTML5 Icon" style="width:128px;height:128px;">
-  <img src="/img/snoopy.png">
-  <video id="localVideo" autoplay muted></video>
-  <video id="remoteVideo" autoplay muted></video>
+    <div class="brand"><a href="/">Healing World!</a></div>
+    <div class="address-bar">Show your own story</div>
 
-  <div>
-    <button id="startButton">시작</button>
-    <button id="callButton">Call</button>
-    <button id="hangupButton">Hang Up</button>
-  </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav"> 
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                    <li>
+                        <a href="/login">login</a>
+                    </li>
+                    <li>
+                        <a href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-<script>
-var localStream, localPeerConnection, remotePeerConnection;
+    <div class="container">
 
-var localVideo = document.getElementById("localVideo");
-var remoteVideo = document.getElementById("remoteVideo");
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-center">
+                    <div id="carousel-example-generic" class="carousel slide">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators hidden-xs">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
 
-var startButton = document.getElementById("startButton");
-var callButton = document.getElementById("callButton");
-var hangupButton = document.getElementById("hangupButton");
-startButton.disabled = false;
-callButton.disabled = true;
-hangupButton.disabled = true;
-startButton.onclick = start;
-callButton.onclick = call;
-hangupButton.onclick = hangup;
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="img/slide-2.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="img/slide-3.jpg" alt="">
+                            </div>
+                        </div>
 
-function trace(text) {
-  console.log((performance.now() / 1000).toFixed(3) + ": " + text);
-}
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="icon-prev"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="icon-next"></span>
+                        </a>
+                    </div>
+                    <h2 class="brand-before">
+                        <small>Welcome to</small>
+                    </h2>
+                    <h1 class="brand-name">Healing world!</h1>
+                    <hr class="tagline-divider">
+                    <h2>
+                        <small>
+                            <strong>Show your own stroy</strong>
+                        </small>
+                    </h2>
+                </div>
+            </div>
+        </div>
 
-function gotStream(stream){
-  trace("Received local stream");
-  localVideo.src = URL.createObjectURL(stream);
-  localStream = stream;
-  callButton.disabled = false;
-}
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Build a website
+                        <strong>worth visiting</strong>
+                    </h2>
+                    <hr>
+                    
+                    <hr class="visible-xs">
+                    
+                </div>
+            </div>
+        </div>
 
-function start() {
-  trace("Requesting local stream");
-  startButton.disabled = true;
-  getUserMedia({audio:true, video:true}, gotStream,
-    function(error) {
-      trace("getUserMedia error: ", error);
-    });
-}
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Beautiful boxes
+                        <strong>to showcase your content</strong>
+                    </h2>
+                    <hr>
+                    <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                </div>
+            </div>
+        </div>
 
-function call() {
-  callButton.disabled = true;
-  hangupButton.disabled = false;
-  trace("Starting call");
+    </div>
+    <!-- /.container -->
 
-  if (localStream.getVideoTracks().length > 0) {
-    trace('Using video device: ' + localStream.getVideoTracks()[0].label);
-  }
-  if (localStream.getAudioTracks().length > 0) {
-    trace('Using audio device: ' + localStream.getAudioTracks()[0].label);
-  }
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  var servers = null;
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-  localPeerConnection = new RTCPeerConnection(servers);
-  trace("Created local peer connection object localPeerConnection");
-  localPeerConnection.onicecandidate = gotLocalIceCandidate;
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-  remotePeerConnection = new RTCPeerConnection(servers);
-  trace("Created remote peer connection object remotePeerConnection");
-  remotePeerConnection.onicecandidate = gotRemoteIceCandidate;
-  remotePeerConnection.onaddstream = gotRemoteStream;
-
-  localPeerConnection.addStream(localStream);
-  trace("Added localStream to localPeerConnection");
-  localPeerConnection.createOffer(gotLocalDescription,handleError);
-}
-
-function gotLocalDescription(description){
-  localPeerConnection.setLocalDescription(description);
-  trace("Offer from localPeerConnection: \n" + description.sdp);
-  remotePeerConnection.setRemoteDescription(description);
-  remotePeerConnection.createAnswer(gotRemoteDescription,handleError);
-}
-
-function gotRemoteDescription(description){
-  remotePeerConnection.setLocalDescription(description);
-  trace("Answer from remotePeerConnection: \n" + description.sdp);
-  localPeerConnection.setRemoteDescription(description);
-}
-
-function hangup() {
-  trace("Ending call");
-  localPeerConnection.close();
-  remotePeerConnection.close();
-  localPeerConnection = null;
-  remotePeerConnection = null;
-  hangupButton.disabled = true;
-  callButton.disabled = false;
-}
-
-function gotRemoteStream(event){
-  remoteVideo.src = URL.createObjectURL(event.stream);
-  trace("Received remote stream");
-}
-
-function gotLocalIceCandidate(event){
-  if (event.candidate) {
-    remotePeerConnection.addIceCandidate(new RTCIceCandidate(event.candidate));
-    trace("Local ICE candidate: \n" + event.candidate.candidate);
-  }
-}
-
-function gotRemoteIceCandidate(event){
-  if (event.candidate) {
-    localPeerConnection.addIceCandidate(new RTCIceCandidate(event.candidate));
-    trace("Remote ICE candidate: \n " + event.candidate.candidate);
-  }
-}
-
-function handleError(){}
-
-</script>
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
 
 </body>
 
