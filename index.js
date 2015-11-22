@@ -2,10 +2,12 @@ var static = require('node-static');
 var http = require('http');
 var path = require('path');
 var express = require('express');
+var app = module.exports = express();
 var mysql = require('mysql');
 var bodyparser = require('body-parser');
 var ejs=require('ejs');
 var logger = require('morgan');
+var server = require('http').createServer(app);
 
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
@@ -19,32 +21,31 @@ var users = require('./routes/users');
 // var router = require('router')
 
 
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'wjswktkwjs5',
-  database : 'psychodrama'
-});
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   database : 'psychodrama'
+// });
 
-connection.connect(function(err) {
-    if (err) {
-        console.error('mysql connection error');
-        console.error(err);
-        throw err;
-    }
-});
+// connection.connect(function(err) {
+//     if (err) {
+//         console.error('mysql connection error');
+//         console.error(err);
+//         throw err;
+//     }
+// });
 
-var file = new(static.Server)();
+var file = new (static.Server)();
 
-var app = module.exports = express();
-var server = require('http').createServer(app);
+
+
 
 app.set('port', (process.env.PORT || 5000));
 app.set('views', __dirname + '/views');
-app.engine('html', require('ejs').renderFile);
 
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('view engine', 'jade');
+// app.set('view engine', 'jade');
 
 app.use(express.static(__dirname + '/public'));
 app.use(logger('dev'));
@@ -75,10 +76,10 @@ app.get('/contact', function(req, res) {
   
 });
 
-app.get('/popup', function(req, res) {
-  res.render('popup');
+// app.get('/popup', function(req, res) {
+//   res.render('popup');
   
-});
+// });
 
 app.get('/login', function(req, res) {
   res.render('login.html');
@@ -162,7 +163,10 @@ app.post('/user/login', function(req, res) {
 
 
 
+app.get('/success', function(req, res, next) {
+  res.render('success.html');
 
+});
 
 
 
@@ -206,9 +210,9 @@ app.get('/test', function(req, res, next) {
 
 
 passport.use(new FacebookStrategy({
-  clientID: 1639866069586311,
-  clientSecret: "ea13af243934019780be8e42bcdd4f15",
-  callbackURL: 'http://localhost:5000/auth/facebook/callback'
+  clientID: FACEBOOK_APP_ID,
+  clientSecret: FACEBOOK_APP_SECRET,
+  callbackURL: '/auth/facebook/callback'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     //Assuming user exists
@@ -238,6 +242,7 @@ passport.deserializeUser(function(obj, done) {
 
 server.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
+
 
 
 
