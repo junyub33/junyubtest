@@ -17,6 +17,8 @@ var FACEBOOK_APP_SECRET = 'ea13af243934019780be8e42bcdd4f15';
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
+console.log("junyub");
 console.log("junyub");
 
 console.log("two");
