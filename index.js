@@ -12,8 +12,8 @@ var server = require('http').createServer(app);
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
-var FACEBOOK_APP_ID = '1639866069586311';
-var FACEBOOK_APP_SECRET = 'ea13af243934019780be8e42bcdd4f15';
+var FACEBOOK_APP_ID = '177329242711424';
+var FACEBOOK_APP_SECRET = '78334e664a372ed0578af98c395535b3';
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
