@@ -84,11 +84,71 @@
                 </div>
                 <div class="col-lg-12 text-center">
 
-  <div>
-    <a href="/chat1"><img src="/img/button.PNG"/></a>
 
+                
+/////////////////////////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+  <title>PlayRTC Hello World!</title>
+    <style>
+        .video {
+            width: 320px;
+            height: 240px;
+        }
+    </style>
+</head>
+
+<body>
+  <div>
+      <label for="channelIdInput">Channel ID</label>
+        <input type="text" id="channelIdInput" placeholder="ChannelId를 입력하세요." value="">
+    <button id="connectChannelButton">채널 입장</button>
+    <button id="createChannelButton">채널 생성 및 입장</button>
   </div>
-                    
+
+  <video class="video" id="localVideo"></video>
+  <video class="video" id="remoteVideo"></video>
+
+    <script src="http://www.playrtc.com/sdk/js/playrtc.min.js"></script>
+    <script>
+    app = new PlayRTC({
+            projectKey: '60ba608a-e228-4530-8711-fa38004719c1',
+            localVideoTarget: 'localVideo',
+      remoteVideoTarget: 'remoteVideo'
+    });
+
+    app.on('connectChannel', function(channelId) {
+      document.getElementById('channelIdInput').value = channelId;
+    });
+
+    document.getElementById('createChannelButton').onclick = function(event) {
+      app.createChannel();
+      return false;
+    };
+
+    document.getElementById('createChannelButton').onclick = function(event) {
+      app.createChannel();
+      return false;
+    };
+
+    document.getElementById('connectChannelButton').onclick = function(event) {
+      var channelId = document.getElementById('channelIdInput').value;
+
+            if (!channelId) { return; }
+      app.connectChannel(channelId);
+      return false;
+    };
+  </script>
+</body>
+
+</html>
+
+//////////////////////////////
+
+     
                     
                 </div>
                 <div class="col-lg-12 text-center">
