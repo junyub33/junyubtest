@@ -22,7 +22,7 @@ console.log("junyub111");
 console.log("junyub!!!")
 
 console.log("two");
-console.log("yeongseok");
+console.log("yeodddngseok!!!");
 // var router = require('router')
 
 
@@ -75,6 +75,13 @@ app.get('/start', function(req, res) {
   res.render('start.html');
   
 });
+
+app.get('/chat1', function(req, res) {
+  res.render('chat1.html');
+  
+});
+
+
 
 app.get('/contact', function(req, res) {
   res.render('contact.html');
