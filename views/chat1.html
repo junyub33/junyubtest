@@ -78,15 +78,11 @@
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
-                        <strong>Login을 성공하였습니다. </strong>
+                        <strong>심리치료자와 연결 됩니다.</strong>
                     </h2>
                     <hr>
                 </div>
                 <div class="col-lg-12 text-center">
-
-
-                
-/////////////////////////////////////////////////////////////////////////
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -277,7 +273,7 @@ cntxt.stroke();
 //Extra Links Code
 $('#export').click(function(e){
 e.preventDefault();
-window.open(canvas.toDataURL(), 'Canvas Export','height=400,width=400');
+window.open(canvas.toDataURL(), 'Canvas Export','height=800,width=600');
 //console.log(canvas.toDataURL());
 });
 $('#clear').click(function(e){
@@ -311,7 +307,7 @@ $('#brush_size').change();
 </head>
 <body>
 <div class="center">
-<h1>가이드의 안내에 따라 그림을 그려주세요</h1>
+<h1>치료사의 안내에 따라 그림을 그려주세요</h1>
 <canvas id="canvas1" width="800" height="600" ></canvas>
 <br/>
 <ul id="colors">
@@ -333,7 +329,7 @@ $('#brush_size').change();
 </ul>
 <br style="clear:both;"/>
 
-<label for="brush">Brush Size:</label>
+<b>Brush Size:</b>
 <select id="brush_size">
 <option value="1">1px</option>
 <option value="2">2px</option>
@@ -347,8 +343,8 @@ $('#brush_size').change();
 
 
 <br style="clear:both;"/>
-<button id="undo" href="#" disabled="disabled">Undo</button>
-<button id="clear" href="#">Reset</button>
+<button id="undo" href="#" disabled="disabled">되돌리기</button>
+<button id="clear" href="#">초기화</button>
 <button id="export" href="#">Export as Image</button>
 <button href="http://athousandnodes.com" target="_blank">a thousand nodes...</button>
 </div>

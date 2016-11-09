@@ -84,6 +84,12 @@ app.get('/chat1', function(req, res) {
 
 
 app.get('/contact', function(req, res) {
+  res.render('contact.html');
+  
+});
+
+
+app.get('/test', function(req, res) {
   res.render('test.html');
   
 });
